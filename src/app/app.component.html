@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h1>
+        {{title}}!!
+      </h1>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form>
+        <div class="form-group">
+          <label>Choose Initials:</label>
+          <div class="dropdown">
+            <select id="mySelect">
+              <!-- Service 1 -->
+              <option *ngFor="let valueDropDown of dropDownList" value={{valueDropDown}}>{{valueDropDown}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form>
+        <div class="form-group">
+          <label for="newNumber">Enter Number:</label>
+          <input type="text" [(ngModel)]="newNumber" name="newNumberUI" id="newNumberUI" class="form-control" placeholder="Enter number">
+        </div>
+        <!--Service 2 -->
+        <button class="btn btn-primary btn-block" (click)="addNumber()">Add Number to Array</button>
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <!-- Show numbers only if exist in array -->
+      <div *ngIf="numberArray.length > 0">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let num of numberArray">
+              <td>
+                {{num}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
